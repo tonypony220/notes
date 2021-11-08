@@ -22,3 +22,6 @@ echo "" | gcc -xc - -v -E
 
 # substitute file in place
 sed -i '' 's/oldword/newword/' file1.txt
+https://unix.stackexchange.com/questions/274120/pipe-fail-141-when-piping-output-into-tee-why
+https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/
+https://superuser.com/questions/94563/how-to-determine-available-free-space-on-ubuntu
