@@ -61,11 +61,11 @@ DOCKER_GOINFRE=$HOME/goinfre/.docker
 MINIKUBE_HOME=$HOME/.minikube
 MINIKUBE_GOINFRE=$HOME/goinfre/.minikube
 #removing cache
-rm -rf $DOCKER_HOME
-rm -rf $MINIKUBE_HOME
-rm -rf $DOCKER_GOINFRE
-rm -rf $MINIKUBE_GOINFRE
-rm -rf $BREW_GOINFRE
+# rm -rf $DOCKER_HOME
+# rm -rf $MINIKUBE_HOME
+# rm -rf $DOCKER_GOINFRE
+# rm -rf $MINIKUBE_GOINFRE
+# rm -rf $BREW_GOINFRE
 #setup .zshrc file
 if [ ! -d ~/.k8s ]
 then
@@ -96,5 +96,5 @@ minikube delete
 minikube start
 
 
-echo "source \$HOME/.k8s" >> $HOME/.zshrc
+# echo "source \$HOME/.k8s" >> $HOME/.zshrc
 echo "[+] DONE "
