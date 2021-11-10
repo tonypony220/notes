@@ -3,3 +3,6 @@ https://harm-smits.github.io/42docs/projects/ft_services.html
 https://github.com/cclaude42/ft_services
 https://github.com/f0rkr/k8s-42-session-setup
 https://stackoverflow.com/questions/42564058/how-to-use-local-docker-images-with-minikube
+https://minikube.sigs.k8s.io/docs/drivers/docker/
+https://stackoverflow.com/questions/36874880/kubernetes-cannot-pull-local-image
+https://stackoverflow.com/questions/40144138/pull-a-local-image-to-run-a-pod-in-kubernetes
