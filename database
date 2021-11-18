@@ -1,1 +1,4 @@
 http://coding-geek.com/how-databases-work/
+mysql:
+	select host, user, password from mysql.user;
+

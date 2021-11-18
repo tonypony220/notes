@@ -25,3 +25,7 @@ sed -i '' 's/oldword/newword/' file1.txt
 https://unix.stackexchange.com/questions/274120/pipe-fail-141-when-piping-output-into-tee-why
 https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/
 https://superuser.com/questions/94563/how-to-determine-available-free-space-on-ubuntu
+https://serverfault.com/questions/4176/what-sysadmin-things-should-every-programmer-know/4737#4737
+https://stackoverflow.com/questions/2150882/how-to-automatically-add-user-account-and-password-with-a-bash-script
+netstat -vanp tcp
+https://stackoverflow.com/questions/24554614/how-find-out-which-process-is-using-a-file-in-linux
