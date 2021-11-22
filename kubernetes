@@ -9,3 +9,4 @@ https://stackoverflow.com/questions/40144138/pull-a-local-image-to-run-a-pod-in-
 https://kubernetes.io/docs/tasks/access-application-cluster/connecting-frontend-backend/
 kubectl get pods --no-headers -o custom-columns=":metadata.name"
 https://minikube.sigs.k8s.io/docs/handbook/accessing/
+https://docs.okd.io/latest/networking/metallb/metallb-configure-services.html
