@@ -10,3 +10,4 @@ https://kubernetes.io/docs/tasks/access-application-cluster/connecting-frontend-
 kubectl get pods --no-headers -o custom-columns=":metadata.name"
 https://minikube.sigs.k8s.io/docs/handbook/accessing/
 https://docs.okd.io/latest/networking/metallb/metallb-configure-services.html
+https://grafana.com/tutorials/provision-dashboards-and-data-sources/
