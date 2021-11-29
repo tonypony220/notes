@@ -30,3 +30,6 @@ https://stackoverflow.com/questions/2150882/how-to-automatically-add-user-accoun
 netstat -vanp tcp
 https://stackoverflow.com/questions/24554614/how-find-out-which-process-is-using-a-file-in-linux
 https://www-cyberciti-biz.translate.goog/faq/grep-regular-expressions/?_x_tr_sl=en&_x_tr_tl=ru&_x_tr_hl=ru&_x_tr_pto=nui,op,sc
+
+echo "dddd|aaaa" | cut -d'|' -f2
+
