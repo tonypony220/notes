@@ -1,3 +1,5 @@
+egrep -v "^$|#"
+
 curl -i -H "Authorization: token ${git_token}" https://api.github.com/user/repos -d '{"name":"bot", "private":"true"}'
 
 curl -i -H "Content-Type: application/json" -X POST -d '{"username": "bot2", "password": "1234"}' http://5.45.120.126:5000/api/users
@@ -33,3 +35,17 @@ https://www-cyberciti-biz.translate.goog/faq/grep-regular-expressions/?_x_tr_sl=
 
 echo "dddd|aaaa" | cut -d'|' -f2
 
+https://apple.stackexchange.com/questions/3271/how-to-get-rid-of-firewall-accept-incoming-connections-dialog
+
+#ENCRIPT
+#   cheap        out  file
+gpg -c --output pass passwds
+#DEcript
+gpg -d passwd.gpg
+
+cp -r !(Default.png|example) /example
+
+https://stackoverflow.com/questions/1313590/bash-copy-all-files-except-one
+ls -d */
+https://blog.sedicomm.com/2019/04/05/kak-ustanovit-i-nastroit-chastnyj-anonimnyj-proksi-server-squid-na-baze-linux-ubuntu-debian/
+https://medium.com/@petehouston/upload-files-with-curl-93064dcccc76
