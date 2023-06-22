@@ -1,0 +1,115 @@
+целостность - полнота, точность, единообразие
+
+read from master some op and vacum, stat 
+
+-- ACID --
+ATOMIC  
+CONSISTENCY
+ISOLATION
+	 x- read uncommited 
+	  - read commited   (parallel transaction uncommited changes read) 
+	 |- repeatable read (parallel transaction commited changes read UPDATE and DELETE isoleted)
+	 |- serializable    (phantom read not possible - inserted rows) 
+	 | Postgres and Mysql has no serializable
+DURABILITY (our data is safe even if machine is shutted down) 
+
+how ACID work? MDCC and lock 
+
+Normal Form
+1NF - one row - one entry
+2NF - all column depend from composit whole key, but it's part
+3NF - all column depend from key directly
+
+coalesce(NULL, 0) 
+
+Index
+    - always increases insert time
+    - not always descrease select time
+
+        CREATE INDEX name ON table USING index_type (column);
+
+Hash 
+    =
+
+B-tree 
+    primary key default
+    B3   
+    sorted
+    references
+    two keys 
+    index must fit to query (not ASC and DESC at same time)
+     
+
+GiST generalized search tree
+    R-tree
+    predicat 
+    for complex data (dots, geodata, IPadresses, text, ranges) 
+     
+
+SP-Gist Space partitioned
+    quadrant tree
+    KD trees
+
+GIN  Generalized inverted index 
+	fastupdate -> group indexing    
+
+BRIN Block range INdexes
+
+-- notes --  
+- idnex not always provides faster READ but always slower INSERT
+- several idx on one table - MEM and CPU on INSERT
+- from code (Go lib) it's better to 
+  start transactions to make group, otherwise it's 2 or more atomic transactions that might break consistensy
+
+- logical notes - 
+
+cluster on one machine 
+heap block 8kb
+TOAST this is storage  when data not fit to page size (JSONB, text)
+data which stored in heap is COMPRESSED 
+
+client connects -> fork -> one query per thread (this why we need limit connections)
+WAL -> writing directly on disk because sync whole data much harder 
+default size of SHARED BUFFERS pool (108mb) -> change for prod
+default forks - 100, but CPU cores shoud equal to process!
+	SHARED BUFFERS 
+	-> hash table to find page
+	-> LRU 
+
+
+CURSOR - like generator thing and can be used for pagination for example
+
+stages: 
+	- parser
+	- analayzer
+	- rewriter
+	- planner
+		seq_page_cost = 1
+		random_page_cost = 4
+		cpu_tuple_cost = 0.01
+		cpu_idnex_tuple_cost = 0.005
+		cpu_operator_cost = 0.005
+	- executor
+
+EXPLAIN is planner stage of query
+it's possible to use cache if we use prepare()
+
+-- METHOD OF ACCESS -- 
+sequential sqan
+index sqan  (if a lot of data read seq cause seq read faster than random)
+index only sqan (покрывающий)
+bitmap sqan
+
+-- METHODS OF JOIN --
+nested loop:
+	EXPLAIN SELECT * FROM a JOIN b ON (a.aid == b.bid) WHERE aid between 1 and 2; 
+hash  join  (prepare: hashes calculating while executing, supports == ):
+	EXPLAIN SELECT * FROM a JOIN b ON (a.aid == b.bid) WHERE aid between 1 and 100; 
+merge join (prepare: sort):
+	EXPLAIN SELECT * FROM a JOIN b ON (a.aid == b.bid) ORDER BY aid; 
+
+-- pgBouncer --
+profit on big amount of connections
+	modes: transactional (prepare and cursor not work)
+		   session 
+

@@ -49,3 +49,69 @@ https://stackoverflow.com/questions/1313590/bash-copy-all-files-except-one
 ls -d */
 https://blog.sedicomm.com/2019/04/05/kak-ustanovit-i-nastroit-chastnyj-anonimnyj-proksi-server-squid-na-baze-linux-ubuntu-debian/
 https://medium.com/@petehouston/upload-files-with-curl-93064dcccc76
+curl -k url (ignoring SSL cert valid)
+
+lsof -c processname
+# MACOS netssstat  ntlp
+netstat -p tcp -van
+lsof -iTCP:$PORT -sTCP:LISTEN
+lsof -i -P | grep LISTEN
+lsof -nP -i
+https://askubuntu.com/questions/1459/how-can-you-monitor-total-internet-data-usage-across-reboots
+
+rsync -av root@$cont:~/notes .
+crontab -e 
+https://crontab.guru/every-day-8am
+#	So to run a command every Monday at 5:30 in the afternoon:
+30 17 * * 1 /path/to/command
+#	or every 15 minutes
+*/15 * * * * /path/to/command
+# rsync + crontab
+
+*/5 * * * * rsync -av root@161.97.125.6:~/notes ~/coding >> ~/logcronout
+*/5 * * * * rsync -av root@161.97.125.6:~/snow ~/coding/snowserv >> ~/logcronout
+---------
+---------
+# list files with perm of s type and ls -Shl cmd
+find / -perm -u=s -type f -exec ls -Shl {} + 2>/dev/null
+
+ulimit --help
+ulimit -a
+
+#  LOGIN to system account 
+# https://wiki.dieg.info/ulimit
+su -l nginx -s /bin/bash
+#exexc form system command 
+su nginx -s /bin/bash -c 'ulimit  -a'
+
+# background 
+bg 
+fg
+jobs -l 
+https://tokmakov.msk.ru/blog/item/469
+https://www.thegeekdiary.com/understanding-the-job-control-commands-in-linux-bg-fg-and-ctrlz/
+
+
+
+#Yes, it is possible to find files by their "MAGIC BITS" using the file command in combination with the find command.
+#The file command can be used to display the type of a file based on its magic bits.
+#
+#You can use the -b option of the file command to only output the file type, and the -i option to ignore the case of the file type.
+#
+#Copy code
+#find /path/to/directory -type f -exec file -bi {} \; | grep -i "type"
+#This command will find all files in the directory specified by "/path/to/directory" and use the file command to display the type of the file, and the grep -i command to filter the results by the specified type.
+#
+#You can also use the -exec option to execute any command on the files that match the search criteria.
+#
+#For example, to find all files th a magic bits of "PDF document" you would run :
+#Copy code
+find /path/to/directory -type f -exec file -bi {} \; | grep -i "PDF document"
+#It is important to note that some files do not have a magic number and the file command may not recognize it.w
+
+#Exclude
+rsync -av --progress sourcefolder /destinationfolder --exclude thefoldertoexclude
+
+#To remove only binary files in a directory using a bash command,
+find . -type f -exec sh -c 'file -b --mime-type "$1" | grep -q "^application/octet-stream$"' sh {} \; -print
+find . -type f -exec sh -c 'file -b --mime-type "$1" | grep -q bin' sh {} \; -print

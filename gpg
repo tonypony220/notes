@@ -1,0 +1,19 @@
+export: 
+gpg --output public.pgp --armor --export
+gpg -o ~/my-key.asc --export-secret-key name
+
+import: 
+gpg --import name_of_pub_key_file
+
+list:
+gpg --list-keys
+
+encrypt: 
+gpg --encrypt --sign --armor -r person@email.com name_of_file
+
+gpg -esa -r Stepan -u bobby file
+
+bobby bobNeverstop8
+
+https://security.stackexchange.com/questions/203326/how-to-display-the-sha256-hash-while-signing-or-in-signature
+https://help.ubuntu.com/community/GnuPrivacyGuardHowto

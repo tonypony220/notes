@@ -1,0 +1,1 @@
+security find-generic-password -ga YourWifiNetworkName | grep “password:”

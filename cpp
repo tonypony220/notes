@@ -48,3 +48,28 @@ xlib
 arkanoid 
 	https://github.com/oasiskharkov/gaijin/blob/master/figure.cpp
 https://stackoverflow.com/questions/57819653/what-is-the-purpose-of-stdadd-lvalue-reference-and-stdadd-rvalue-reference
++https://www.artima.com/articles/a-brief-introduction-to-rvalue-references
++https://blog.galowicz.de/2016/03/23/const_reference_to_temporary_object/
+
+
+петя темы к собесу
+rehashing
+weak pointer  
+shared -> multithreading 
+virtual inheritance 
+variadic templates 
+
+vector of abstract classes 
+
+new_make shared, shared(new 2
+
+try {
+A a; 
+B b;
+C c;
+throw hui
+D d;
+}
+catch (const std::exception& e) {
+}
+

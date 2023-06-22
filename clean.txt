@@ -1,0 +1,24 @@
+Планируем обсудить подходы:
+
+    tell don`t ask
+    information expert (из GRASP)
+    imperative shell, functional core
+    clean architecture
+
+Что можно почитать до встречи:
+https://habr.com/ru/post/192706/
+https://habr.com/ru/company/otus/blog/491636/
+https://kennethlange.com/functional-core-imperative-shell/
+https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell
+https://habr.com/ru/post/269589/
+https://habr.com/ru/post/427739/
+
+ну и про сами тесты:
+https://habr.com/ru/post/358950/
+https://habr.com/ru/post/358178/
+
+
+DDD 
+https://www.youtube.com/watch?v=JOy_SNK3qj4
+
+https://ruozon-my.sharepoint.com/:v:/g/personal/vystartsev_ozon_ru/EUYLGvI-TgtBttZml3_nB1kBKlboF7tHvqYUfYwRMkpGsg
