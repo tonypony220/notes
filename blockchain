@@ -1,1 +1,25 @@
+
 https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjLk9GIhqH5AhWstYsKHf6QA9MQFnoECCUQAQ&url=https%3A%2F%2Fblog.logrocket.com%2Fhow-to-build-a-blockchain-in-rust%2F&usg=AOvVaw1ln7uuz1TnVOdE_AmSEdVr
+
+
+----- BITCOIN -----
+
+Essentially, each transaction in the block must provide a valid state transition from 
+what was the canonical state before the transaction was executed to some new state.
+Note that the state is NOT ENCODED IN THE BLOCK in any way; 
+it is purely an ABSTRACTION to be remembered by the validating node
+and can only be (securely) COMPUTED for any block by starting from the genesis state
+and sequentially APPLYING EVERY TRANSACTION in every block
+
+SPV
+A protocol known as "simplified payment verification" (SPV) allows for 
+another class of nodes to exist, called "light nodes",
+which download the block headers, verify the proof-of-work on the block headers
+
+
+bitcoin doc
+https://developer.bitcoin.org/devguide/block_chain.html
+
+
+TRIE ETHEREUM
+The approach may seem highly inefficient at first glance, because it needs to store the entire state with each block, but in reality efficiency should be comparable to that of Bitcoin. The reason is that the state is stored in the tree structure, and after every block only a small part of the tree needs to be changed. Thus, in general, between two adjacent blocks the vast majority of the tree should be the same, and therefore the data can be stored once and referenced twice using pointers (ie. hashes of subtrees). A special kind of tree known as a "Patricia tree" is used to accomplish this, including a modification to the Merkle tree concept that allows for nodes to be inserted and deleted, and not just changed, efficiently. Additionally, because all of the state information is part of the last block, there is no need to store the entire blockchain history - a strategy which, if it could be applied to Bitcoin, can be calculated to provide 5-20x savings in space.

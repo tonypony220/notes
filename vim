@@ -33,3 +33,5 @@ https://stackoverflow.com/questions/234564/tab-key-4-spaces-and-auto-indent-afte
 #with confirm
 	:s/foo/bar/gce
 
+
+https://stackoverflow.com/questions/67826083/coc-nvim-open-function-or-class-definition-in-a-new-terminal-tab

@@ -12,7 +12,6 @@ curl -u 'USER' https://api.github.com/user/repos -d '{"name":"cub3d"}'
 sudo ntpdate -vu time.apple.com 
 
 
-
 You can use the following command:
 git checkout HEAD -- my-file.txt
 ... which will update both the working copy of my-file.txt and its state in the index with that from HEAD.
@@ -22,8 +21,16 @@ git checkout HEAD -- my-file.txt
 echo "" | gcc -xc - -v -E
 
 
+# sed 
+sed -i -e 's/abc/XYZ/g' /tmp/file.txt
+# from MACOS 
+sed -i '' 's/abc/XYZ/g' /tmp/file.txt
+
 # substitute file in place
 sed -i '' 's/oldword/newword/' file1.txt
+#  delete from a text file, all lines that contain a specific string
+sed -i '' '/pattern to match/d' ./infile
+
 https://unix.stackexchange.com/questions/274120/pipe-fail-141-when-piping-output-into-tee-why
 https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/
 https://superuser.com/questions/94563/how-to-determine-available-free-space-on-ubuntu
@@ -91,7 +98,8 @@ jobs -l
 https://tokmakov.msk.ru/blog/item/469
 https://www.thegeekdiary.com/understanding-the-job-control-commands-in-linux-bg-fg-and-ctrlz/
 
-
+#server
+nc -l 5000
 
 #Yes, it is possible to find files by their "MAGIC BITS" using the file command in combination with the find command.
 #The file command can be used to display the type of a file based on its magic bits.
@@ -109,9 +117,24 @@ https://www.thegeekdiary.com/understanding-the-job-control-commands-in-linux-bg-
 find /path/to/directory -type f -exec file -bi {} \; | grep -i "PDF document"
 #It is important to note that some files do not have a magic number and the file command may not recognize it.w
 
-#Exclude
+# exclude
 rsync -av --progress sourcefolder /destinationfolder --exclude thefoldertoexclude
+rsync -av . --exclude target --exclude ".git"  root@$serv:~/madara/
 
 #To remove only binary files in a directory using a bash command,
 find . -type f -exec sh -c 'file -b --mime-type "$1" | grep -q "^application/octet-stream$"' sh {} \; -print
 find . -type f -exec sh -c 'file -b --mime-type "$1" | grep -q bin' sh {} \; -print
+
+# line numbers 
+grep -n 
+
+# size hidden
+du -hs .[^.]*
+du -hs $(ls -A)
+
+
+#https://askubuntu.com/questions/94060/run-adduser-non-interactively
+adduser elasticsearch elasticsearch
+hash=$(python3 -c 'import crypt; print(crypt.crypt("1234"))')
+useradd -m -p $hash -s /bin/bash foo
+

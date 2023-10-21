@@ -2,6 +2,13 @@
  git show -1 
  git reflog
 
+ # short hash 
+ git log --oneline
+ git log --abbrev-commit
+
+#revision 
+# https://stackoverflow.com/questions/5724513/in-git-how-do-i-figure-out-what-my-current-revision-is
+
  # rename commit behind previous
  git rebase -i HEAD~commit_count
  git log --graph --oneline --all
@@ -37,7 +44,13 @@ git rebase upstream/master
 git push -f origin master
 
 
+git log --name-only  # <---
 
+# https://stackoverflow.com/questions/7203515/how-to-find-a-deleted-file-in-the-project-commit-history
+#If you do not know the exact path you may use
+	git log --all --full-history -- "**/thefile.*"
+#If you know the path the file was at, you can do this:
+	git log --all --full-history -- <path-to-file>
 
 
 #How to list only the names of files that changed between two commits
@@ -49,3 +62,22 @@ git diff --name-only HEAD~10 HEAD~5
 #To overwrite a file in a branch from another branch, 
 #i.e, master to redesign do (when redesign is the current branch)
 git checkout master ./path_to_file/default.aspx.cs
+
+
+
+
+# How do I fetch a branch on someone else's fork on GitHub?
+git remote add theirusername git@github.com:theirusername/reponame.git
+git fetch theirusername
+git checkout -b mynamefortheirbranch theirusername/theirbranch
+
+
+# Auth problems in git 
+# https://stackoverflow.com/questions/6565357/git-push-requires-username-and-password
+git remote set-url origin git@github.com:username/repo.git
+
+
+# submodule 
+git submodule init
+git submodele update
+

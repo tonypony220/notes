@@ -1,0 +1,2 @@
+-  Stop iPhoto From Opening Automatically on Mac
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool YES

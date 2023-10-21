@@ -1,0 +1,122 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree' "file and project navigation
+Plug 'majutsushi/tagbar' "class/module browser
+Plug 'bling/vim-airline' "nice infobar
+Plug 'junegunn/seoul256.vim'
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-surround' "surround everything
+Plug 'tpope/vim-fugitive' "git helper
+Plug 'elzr/vim-json' "json highlight and handling
+Plug 'gcmt/taboo.vim' "tabs settings plugin
+Plug 'mhartington/oceanic-next' "oceanic colorscheme
+Plug 'tpope/vim-commentary' "commenting lines and blocks
+Plug 'chr4/nginx.vim' "nginx config highlighting
+Plug 'wakatime/vim-wakatime' "time tracker
+Plug 'neoclide/coc.nvim', {'branch': 'release'} "Neovim autocompletion
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
+Plug 'phanviet/vim-monokai-pro'
+
+call plug#end()
+" General
+filetype plugin on
+filetype indent on
+let g:coc_disable_startup_warning = 1
+" colorscheme pencil " for C
+
+inoremap jk <ESC>
+let mapleader = " "
+"this thing saving file on exiting insert mode 
+:autocmd InsertLeave * silent! update 
+" autocmd vimenter * colorscheme gruvbox
+set background=dark
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set autoindent
+set noexpandtab
+
+set regexpengine=1
+"set cursorline
+
+"set lazyredraw "buffer screen updates
+"set ttyfast "smooth scroll
+
+set encoding=utf-8 "default encoding setting
+set number "line numbering
+set incsearch "incrementable search
+set hlsearch "highlight search results
+set backspace=indent,eol,start "backspace behavior
+set scrolloff=5  "5 strings per scroll in a time
+set ls=2 "status bar always on
+set mouse=a "enable mouse
+"syntax on
+" TextEdit might fail if hidden is not set.
+"set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+"if has("patch-8.1.1564")
+"  " Recently vim can merge signcolumn and number column into one
+"  set signcolumn=number
+"else
+"  set signcolumn=yes
+"endif
+
+
+"color settings
+set t_Co=256
+if &term =~# '^screen' " :h xterm-true-colors
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum,
+endif
+
+if (has("termguicolors"))
+set termguicolors
+endif
+let g:oceanic_next_terminal_bold = 1
+"let g:oceanic_next_terminal_italic = 1
+let g:airline_theme = 'oceanicnext'
+colorscheme OceanicNext
+" colorscheme atom
+"colorscheme ghdark
+" colorscheme two-firewatch
+" colorscheme molokayo
+
+
+"
+"
+"
+" colorscheme afterglow
+" colorscheme ghdark
+
+" colorscheme pencil " for C
+nmap <C-n> :tabnext<CR>
+nmap <C-p> :tabprev<CR>
+
+" imap <silent> <C-n> <esc><C-n>
+" imap <silent> <C-p> <esc><C-p>
+"To create a new tab
+nnoremap t :tabnew<Space>
+" nnoremap <C-q> :wqall<CR>
+nmap <C-c> :tabnew<Space>.<CR>
+nmap <C-q> :wqall<CR>
+
+nmap <C-e> :w<CR>
+nmap <C-j> :e<Space>.<CR>
+
+nmap <C-m> <C-w>v
+nmap <C-h> <C-w>h
+nmap <C-l> <C-w>l
+" inoremap <C-t> <Esc>:tabnew<Space>
