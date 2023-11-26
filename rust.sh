@@ -54,4 +54,9 @@ assert!(matches!(result.unwrap(), MaybePendingStateUpdate::Update{ .. }));
 # install -> https://github.com/dtolnay/cargo-expand
 cargo expand -p pallet-flipper --lib --tests
 
+RUST_LOG=debug
 
+
+format!("{err:?}"
+# sqlx 
+# https://stackoverflow.com/questions/76257309/properly-dealing-with-hierarchies-in-rust-sqlx

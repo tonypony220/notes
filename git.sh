@@ -15,10 +15,16 @@
 
  https://stackoverflow.com/questions/21459197/move-branch-to-another-branch
 
+# how add remote localy
+#https://www.freecodecamp.org/news/remote-branches-in-git/#:~:text=The%20thing%20is%2C%20Git%20doesn,and%20then%20make%20changes%20locally.
+git checkout -b new-feature origin/new-feature
+# --------------
 
 #show URL
 git remote show origin
 
+git branch -v -a
+#          ^^
 
 #### How do I update or sync a forked repository on GitHub?
  # Add the remote, call it "upstream":
@@ -43,6 +49,16 @@ git rebase upstream/master
 
 git push -f origin master
 
+
+# after this fetch when main ahead of your base in branch
+git fetch origin master:master
+#The syntax for the above is as follows (thanks @Adam)
+git fetch <remote> <src>:<dst>
+#Merge #Then (if you want to merge right away):
+git merge master
+
+
+#https://stackoverflow.com/questions/1783405/how-do-i-check-out-a-remote-git-branch
 
 git log --name-only  # <---
 

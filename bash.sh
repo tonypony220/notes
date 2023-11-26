@@ -30,6 +30,26 @@ sed -i '' 's/abc/XYZ/g' /tmp/file.txt
 sed -i '' 's/oldword/newword/' file1.txt
 #  delete from a text file, all lines that contain a specific string
 sed -i '' '/pattern to match/d' ./infile
+##################################################################################
+
+grep -rli 'old-word' * | xargs -i@ sed -i 's/old-word/new-word/g' @
+#Command breakdown
+find . -type f -exec sed -i '' 's/Example//g' {} +
+
+
+#grep -r: --recursive, recursively read all files under each directory.
+#grep -l: --print-with-matches, prints the name of each file that has a match, instead of printing matching lines.
+#grep -i: --ignore-case.
+
+#xargs: transform the STDIN to arguments, follow this answer.
+#xargs -i@ ~command contains @~: a placeholder for the argument to be used in a specific position in the ~command~, the @ sign is a placeholder which could replaced by any string.
+
+#sed -i: edit files in place, without backups.
+#sed s/regexp/replacement/: substitute string matching regexp with replacement.
+#sed s/regexp/replacement/g: global, make the substitution for each match instead of only the firstmatch. 
+
+##################################################################################
+
 
 https://unix.stackexchange.com/questions/274120/pipe-fail-141-when-piping-output-into-tee-why
 https://www.cyberciti.biz/faq/unix-linux-check-if-port-is-in-use-command/
@@ -120,6 +140,8 @@ find /path/to/directory -type f -exec file -bi {} \; | grep -i "PDF document"
 # exclude
 rsync -av --progress sourcefolder /destinationfolder --exclude thefoldertoexclude
 rsync -av . --exclude target --exclude ".git"  root@$serv:~/madara/
+# specify port of ssh
+rsync -rvz -e 'ssh -p 2222' --progress ./dir user@host:/path
 
 #To remove only binary files in a directory using a bash command,
 find . -type f -exec sh -c 'file -b --mime-type "$1" | grep -q "^application/octet-stream$"' sh {} \; -print
@@ -127,10 +149,14 @@ find . -type f -exec sh -c 'file -b --mime-type "$1" | grep -q bin' sh {} \; -pr
 
 # line numbers 
 grep -n 
+# two patterns
+grep -E 'pattern1|pattern2' *. py.
+grep -e pattern1 -e pattern2 *. pl.
 
 # size hidden
 du -hs .[^.]*
 du -hs $(ls -A)
+du -hs $(ls -A) | sort -rh
 
 
 #https://askubuntu.com/questions/94060/run-adduser-non-interactively
